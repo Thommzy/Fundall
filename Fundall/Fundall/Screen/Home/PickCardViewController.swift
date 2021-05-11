@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class PickCardViewController: UIViewController {
     
@@ -13,11 +14,13 @@ class PickCardViewController: UIViewController {
     @IBOutlet weak var lifeStyleTableView: UITableView!
     @IBOutlet weak var tbvConst: NSLayoutConstraint!
     
+    @IBOutlet weak var userImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLifestyleCollectionView()
         setupLifeStyleTableView()
+        loadImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +31,17 @@ class PickCardViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeTableviewObserver()
+    }
+    
+    func loadImage() {
+        DispatchQueue.main.async {
+            let userImage = Defaults[\.profileImage]
+            let url = URL(string: userImage)
+            self.userImageView.kf.setImage(with: url)
+            self.userImageView.layer.cornerRadius = 60/2
+            self.userImageView.layer.masksToBounds = true
+            self.userImageView.contentMode = .scaleAspectFill
+        }
     }
     
     func setupLifeStyleTableView() {
@@ -67,8 +81,6 @@ extension PickCardViewController: UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = Bundle.main.loadNibNamed(LifeStyleTableViewCell().identifier, owner: self, options: nil)?.first as? LifeStyleTableViewCell
         }
-        //cell?.sentInvitationDetails = globalSentInvitations[indexPath.row]
-        //cell?.delegate = self
         cell?.selectionStyle = .none
         cell?.preservesSuperviewLayoutMargins = false
         return cell!

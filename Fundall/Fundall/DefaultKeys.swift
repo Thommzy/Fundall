@@ -11,4 +11,5 @@ extension DefaultsKeys {
     var userEmail: DefaultsKey<String> { return .init("userEmail", defaultValue: "") }
     var userFirstName: DefaultsKey<String> { return .init("userFirstName", defaultValue: "") }
     var token: DefaultsKey<String> { return .init("token", defaultValue: "") }
+    var profileImage: DefaultsKey<String> { return .init("profileImage", defaultValue: "") }
 }

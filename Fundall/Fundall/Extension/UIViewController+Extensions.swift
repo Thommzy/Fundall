@@ -21,7 +21,6 @@ extension UIViewController {
     
     open func toast(to message: String) {
         let style = ToastStyle()
-        // present the toast with the new style
         self.view.makeToast(message, duration: 3.0, position: .bottom, style: style)
     }
 }

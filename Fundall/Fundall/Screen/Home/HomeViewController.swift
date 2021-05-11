@@ -9,6 +9,7 @@ import UIKit
 import SwiftyUserDefaults
 import RxCocoa
 import RxSwift
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -21,11 +22,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var totalBalanceLbl: UILabel!
     @IBOutlet weak var spentAmountLbl: UILabel!
     @IBOutlet weak var incomeAmountLbl: UILabel!
+    @IBOutlet weak var imageParentView: UIView!
+    
+    @IBOutlet weak var userImageView: UIImageView!
+    
+    var imagePicker = UIImagePickerController()
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     
     let disposeBag = DisposeBag()
     let profileViewModel = ProfileViewModel(profileDataService: ProfilrDataService())
-    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +43,8 @@ class HomeViewController: UIViewController {
         setupLogoutView()
         
         setupProfileResponse()
+        setupImageParentView()
+        setupImageUploadResponse()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +57,7 @@ class HomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeTableviewObserver()
+        setupProfileResponse()
     }
     
     func setupLogoutView() {
@@ -111,12 +120,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         if cell == nil {
             cell = Bundle.main.loadNibNamed(TrackTableViewCell().identifier, owner: self, options: nil)?.first as? TrackTableViewCell
         }
-        //cell?.sentInvitationDetails = globalSentInvitations[indexPath.row]
-        //cell?.delegate = self
         cell?.selectionStyle = .none
         cell?.preservesSuperviewLayoutMargins = false
-        //cell?.separatorInset = UIEdgeInsets.zero
-        //cell?.layoutMargins = UIEdgeInsets.zero
         return cell!
     }
     
@@ -174,6 +179,47 @@ extension HomeViewController {
     }
 }
 
+//MARK:- Image Picker
+extension HomeViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func setupImageParentView() {
+        userImageView.layer.cornerRadius = 63/2
+        userImageView.layer.masksToBounds = true
+        userImageView.contentMode = .scaleAspectFill
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageParentViewTapped))
+        imageParentView.isUserInteractionEnabled = true
+        imageParentView.addGestureRecognizer(tap)
+        
+        
+    }
+    
+    @objc func imageParentViewTapped() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            present(imagePicker, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        userImageView.image = image
+        
+        profileViewModel.imageUpload(image: image)
+        
+            activityIndicator.center = self.view.center
+            activityIndicator.startAnimating()
+            view.addSubview(activityIndicator)
+    }
+    
+}
+
 //MARK:- API CALLS
 extension HomeViewController {
     func setupProfileResponse() {
@@ -183,10 +229,36 @@ extension HomeViewController {
                 totalBalanceLbl.text = result?.success?.data?.totalBalance
                 incomeAmountLbl.text = result?.success?.data?.income
                 spentAmountLbl.text = result?.success?.data?.spent
-                print("user>>>", result)
+                
+                if result?.success?.data?.avatar != nil {
+                    DispatchQueue.main.async {
+                        activityIndicator.stopAnimating()
+                        let userImage = result?.success?.data?.avatar ?? String()
+                        Defaults[\.profileImage] = userImage
+                        let url = URL(string: userImage)
+                        self.userImageView.kf.setImage(with: url)
+                    }
+                }
             })
             .disposed(by: disposeBag)
         profileViewModel.getProfile()
     }
-
+    
+    func setupImageUploadResponse() {
+        profileViewModel.imageResult.asObservable()
+            .subscribe(onNext: { [unowned self]
+                result in
+                if let result = result {
+                    activityIndicator.stopAnimating()
+                    if result.success?.status == "SUCCESS" {
+                        toast(to: result.success?.message ?? String())
+                    }
+                    
+                    if result.error != nil {
+                        toast(to: result.error?.message ?? String())
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
+    }
 }

@@ -24,9 +24,7 @@ class AuthViewModel {
     private var authDataService: AuthDataService?
     
     // MARK: - Closures for callback, since we are not using the ViewModel to the View.
-    var showAlertClosure: (() -> ())?
     var updateLoadingStatus: (() -> ())?
-    var didFinishFetch: (() -> ())?
     
     // MARK: - Constructor
     init(authDataService: AuthDataService) {

@@ -76,11 +76,15 @@ class CreateViewController: UIViewController {
 extension CreateViewController {
     func setupRegisterResponse() {
         authViewModel.registerResult.asObservable()
-            .subscribe(onNext: {
+            .subscribe(onNext: { [unowned self]
                 result in
                 if let result = result {
+                    if result.error != nil {
+                        activityIndicator.stopAnimating()
+                        self.toast(to: result.error?.message ?? String())
+                    }
                     if result.success?.status == "SUCCESS" {
-                        self.activityIndicator.stopAnimating()
+                        activityIndicator.stopAnimating()
                         let controller = LogInViewController.instantiate(storyboardName: Storyboard.login)
                         controller.modalPresentationStyle = .fullScreen
                         self.present(controller, animated: true)

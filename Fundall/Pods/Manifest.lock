@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.4.1)
   - AlamofireNetworkActivityLogger (3.4.0):
     - Alamofire (~> 5.4.0)
+  - Kingfisher (6.2.1)
   - RxCocoa (6.0.0):
     - RxRelay (= 6.0.0)
     - RxSwift (= 6.0.0)
@@ -16,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - AlamofireNetworkActivityLogger (~> 3.4)
+  - Kingfisher (~> 6.0)
   - RxCocoa (= 6.0.0)
   - RxSwift (= 6.0.0)
   - SnapKit (~> 5.0.0)
@@ -27,6 +29,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireNetworkActivityLogger
+    - Kingfisher
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -38,6 +41,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   AlamofireNetworkActivityLogger: 162ab8aee00e6267a4304d7cc134e13ccfe3bcc5
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
@@ -46,6 +50,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 512272d30ee6d544b28130458ac8d35ce5dd35c0
+PODFILE CHECKSUM: 669eac8d65ee6b63658c3cf5e8614f9a8ac787df
 
 COCOAPODS: 1.9.3

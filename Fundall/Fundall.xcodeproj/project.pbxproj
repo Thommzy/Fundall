@@ -24,6 +24,7 @@
 		04AF03F1264A66DF000FCBE0 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF03F0264A66DF000FCBE0 /* ProfileModel.swift */; };
 		04AF03F6264A6808000FCBE0 /* ProfilrDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF03F5264A6808000FCBE0 /* ProfilrDataService.swift */; };
 		04AF03FB264A6922000FCBE0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF03FA264A6922000FCBE0 /* ProfileViewModel.swift */; };
+		04AF0453264AD1F7000FCBE0 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF0452264AD1F7000FCBE0 /* ImageModel.swift */; };
 		04DB9117264705B000E8D32E /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB9116264705B000E8D32E /* AuthModel.swift */; };
 		04DB911D264708BB00E8D32E /* AuthDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB911C264708BB00E8D32E /* AuthDataService.swift */; };
 		04DB912626470D2300E8D32E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB912526470D2300E8D32E /* AuthViewModel.swift */; };
@@ -40,7 +41,6 @@
 		04F6BF8D26465E0E00E71532 /* FundallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6BF8C26465E0E00E71532 /* FundallTests.swift */; };
 		04F6BF9826465E0E00E71532 /* FundallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6BF9726465E0E00E71532 /* FundallUITests.swift */; };
 		04F6BFC326467A2000E71532 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6BFC226467A2000E71532 /* CreateViewController.swift */; };
-		04F6BFC926467C5C00E71532 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6BFC826467C5C00E71532 /* UIFont+Extensions.swift */; };
 		04F6BFCD2646800C00E71532 /* FoundersGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04F6BFBE264676BE00E71532 /* FoundersGrotesk-Medium.otf */; };
 		04F6BFD12646801100E71532 /* FoundersGroteskRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04F6BFBA26466E6D00E71532 /* FoundersGroteskRegular.otf */; };
 		04F6BFD52646803800E71532 /* FoundersGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04F6BFBE264676BE00E71532 /* FoundersGrotesk-Medium.otf */; };
@@ -50,7 +50,6 @@
 		04F6BFE726469C3F00E71532 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F6BFE626469C3F00E71532 /* LogIn.storyboard */; };
 		04F6BFEF26469C5000E71532 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6BFEE26469C5000E71532 /* LogInViewController.swift */; };
 		04F6BFF426469E0600E71532 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6BFF326469E0600E71532 /* UIViewController+Extensions.swift */; };
-		04F6BFFA26469FC500E71532 /* LogInConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6BFF926469FC500E71532 /* LogInConstants.swift */; };
 		04F6C0022646A01C00E71532 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6C0012646A01C00E71532 /* Utils.swift */; };
 		04F6C0072646BA8300E71532 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6C0062646BA8300E71532 /* WelcomeViewController.swift */; };
 		04F6C00C2646C63D00E71532 /* Founders Grotesk Regular Italic Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C00B2646C63C00E71532 /* Founders Grotesk Regular Italic Regular.otf */; };
@@ -94,6 +93,7 @@
 		04AF03F0264A66DF000FCBE0 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		04AF03F5264A6808000FCBE0 /* ProfilrDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilrDataService.swift; sourceTree = "<group>"; };
 		04AF03FA264A6922000FCBE0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		04AF0452264AD1F7000FCBE0 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		04DB9116264705B000E8D32E /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		04DB911C264708BB00E8D32E /* AuthDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataService.swift; sourceTree = "<group>"; };
 		04DB912526470D2300E8D32E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -118,11 +118,9 @@
 		04F6BFBA26466E6D00E71532 /* FoundersGroteskRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FoundersGroteskRegular.otf; sourceTree = "<group>"; };
 		04F6BFBE264676BE00E71532 /* FoundersGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-Medium.otf"; sourceTree = "<group>"; };
 		04F6BFC226467A2000E71532 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
-		04F6BFC826467C5C00E71532 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		04F6BFE626469C3F00E71532 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		04F6BFEE26469C5000E71532 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		04F6BFF326469E0600E71532 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		04F6BFF926469FC500E71532 /* LogInConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInConstants.swift; sourceTree = "<group>"; };
 		04F6C0012646A01C00E71532 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		04F6C0062646BA8300E71532 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		04F6C00B2646C63C00E71532 /* Founders Grotesk Regular Italic Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Founders Grotesk Regular Italic Regular.otf"; sourceTree = "<group>"; };
@@ -219,11 +217,20 @@
 			path = CustomPopUp;
 			sourceTree = "<group>";
 		};
+		04AF046A264ADEEE000FCBE0 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				04F6BFC226467A2000E71532 /* CreateViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		04DB90FF2647039D00E8D32E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				04DB9116264705B000E8D32E /* AuthModel.swift */,
 				04AF03F0264A66DF000FCBE0 /* ProfileModel.swift */,
+				04AF0452264AD1F7000FCBE0 /* ImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,12 +256,12 @@
 		04EC549B26484D5500B7DA1F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				04AF039C2649AED0000FCBE0 /* TrackTableCell */,
 				04AF03CC2649D6A7000FCBE0 /* LifeStyleTableViewCell */,
+				04AF03BF2649D103000FCBE0 /* LifeStyleCardCell */,
 				04EC549C26484D6700B7DA1F /* Home.storyboard */,
 				04EC54A126484D9200B7DA1F /* HomeViewController.swift */,
-				04AF039C2649AED0000FCBE0 /* TrackTableCell */,
 				04AF03B62649CB5F000FCBE0 /* PickCardViewController.swift */,
-				04AF03BF2649D103000FCBE0 /* LifeStyleCardCell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -331,7 +338,7 @@
 			children = (
 				04EC549B26484D5500B7DA1F /* Home */,
 				04F6BFE526469C3100E71532 /* LogIn */,
-				04F6BFC226467A2000E71532 /* CreateViewController.swift */,
+				04AF046A264ADEEE000FCBE0 /* SignUp */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -339,7 +346,6 @@
 		04F6BFC726467C4A00E71532 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				04F6BFC826467C5C00E71532 /* UIFont+Extensions.swift */,
 				04F6BFF326469E0600E71532 /* UIViewController+Extensions.swift */,
 				04EC54A62648582500B7DA1F /* UILabel+Extension.swift */,
 				04AF03EB264A5BED000FCBE0 /* UIView+Extensions.swift */,
@@ -360,7 +366,6 @@
 		04F6BFF826469FB200E71532 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				04F6BFF926469FC500E71532 /* LogInConstants.swift */,
 				04F6C0012646A01C00E71532 /* Utils.swift */,
 			);
 			path = Constants;
@@ -647,6 +652,7 @@
 				04AF03B72649CB5F000FCBE0 /* PickCardViewController.swift in Sources */,
 				04DB911D264708BB00E8D32E /* AuthDataService.swift in Sources */,
 				04AF03EC264A5BED000FCBE0 /* UIView+Extensions.swift in Sources */,
+				04AF0453264AD1F7000FCBE0 /* ImageModel.swift in Sources */,
 				04EC54A72648582500B7DA1F /* UILabel+Extension.swift in Sources */,
 				04AF03F6264A6808000FCBE0 /* ProfilrDataService.swift in Sources */,
 				04F6BFF426469E0600E71532 /* UIViewController+Extensions.swift in Sources */,
@@ -654,8 +660,6 @@
 				04AF03CF2649D6C7000FCBE0 /* LifeStyleTableViewCell.swift in Sources */,
 				04F6BF7626465E0D00E71532 /* AppDelegate.swift in Sources */,
 				04AF03BD2649D0FD000FCBE0 /* LifeStyleCardCollectionViewCell.swift in Sources */,
-				04F6BFFA26469FC500E71532 /* LogInConstants.swift in Sources */,
-				04F6BFC926467C5C00E71532 /* UIFont+Extensions.swift in Sources */,
 				04F6BF7826465E0D00E71532 /* SceneDelegate.swift in Sources */,
 				04AF03F1264A66DF000FCBE0 /* ProfileModel.swift in Sources */,
 				04AF03972649AECA000FCBE0 /* TrackTableViewCell.swift in Sources */,

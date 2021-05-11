@@ -35,4 +35,30 @@ struct ProfilrDataService {
             }
         }
     }
+    
+    func requestUploadImage(image: UIImage?, completion: @escaping(ImageModelResponse?, Error?) -> ()) {
+        let token = Defaults[\.token]
+        let url = "\(API.baseURL)/api/\(Version.v1)/base/avatar"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)"
+        ]
+        
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(image!.jpegData(compressionQuality: 0.6)!, withName: "avatar" , fileName: "avatar.jpeg", mimeType: "image/jpeg")
+            },
+            to: url, method: .post , headers: headers).responseDecodable(of: ImageModelResponse.self) {
+                response in
+                if let error = response.error {
+                    completion(nil, error)
+                    return
+                }
+                
+                if let result = response.value {
+                    completion(result, nil)
+                    return
+                }
+            }
+    }
 }
